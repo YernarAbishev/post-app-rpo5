@@ -1,0 +1,24 @@
+{% extends '../base.html' %}
+
+{% block title %}Add post{% endblock %}
+
+{% block content %}
+<style>
+    #id_title, #id_image, #id_content {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #000;
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+</style>
+    <div class="container">
+        <h1 class="title mt-5 mb-5">Add news</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button class="button is-warning">Add</button>
+        </form>
+    </div>
+{% endblock %}

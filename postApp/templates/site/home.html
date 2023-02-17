@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="columns">
+            <div class="column is-two-thirds">
+                <section class="hero pt-5 pb-5">
+                    <div class="hero-body">
+                      <p class="title mb-5">
+                        Main Page
+                      </p>
+                      <p class="subtitle mb-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aliquid dolor quis quos neque fugiat reprehenderit quibusdam, necessitatibus distinctio culpa debitis eum architecto illo laboriosam unde nulla amet numquam consectetur!
+                      </p>
+                      <a href="#" class="button is-warning">All news</a>
+                    </div>
+                </section>
+            </div>
+            <div class="column">
+                {% for post in posts %}
+                <div class="card mt-5">
+                    <div class="card-content">
+                      <div class="content">
+                        <h3>{{ post.title}}</h3>
+                          <a href="{% url 'postDetail' pk=post.pk %}" class="button is-warning">Read</a>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
